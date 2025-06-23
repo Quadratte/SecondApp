@@ -1,26 +1,30 @@
-//
-//  ContentView.swift
-//  SecondApp
-//
-//  Created by Quadratte on 20.06.2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+  @State var total = "0"
+  @State var mode: CalculatorMode = .notSet
+  
+  var body: some View {
+    
+    ZStack {
+      Color(.black)
+        .ignoresSafeArea(.all)
+      VStack {
+        Spacer()
+        TotalText(value: total)
+        ButtonGrid(total: $total)
+      }
     }
+  }
+  
+  func getSum() {
+    total = "alupa"
+  }
+  
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+      ContentView()
     }
 }
